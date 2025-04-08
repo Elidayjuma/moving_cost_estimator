@@ -1,23 +1,24 @@
-import { FaGlobe, FaUsers, FaRocket } from "react-icons/fa";
+import { FaTruck, FaBoxes, FaCalculator } from "react-icons/fa";
 
 const FeatureCards = () => {
     const features = [
         {
-            icon: <FaGlobe className="text-blue-600 text-xl" />,
-            title: "Check Domain",
-            description: "Instantly verify domain availability for your startup."
+            icon: <FaTruck className="text-blue-600 text-xl" />,
+            title: "Accurate Estimates",
+            description: "Get a detailed estimate based on distance, vehicle type, and item size."
         },
         {
-            icon: <FaUsers className="text-green-600 text-xl" />,
-            title: "Check Socials",
-            description: "See if your startup name is free on social media."
+            icon: <FaBoxes className="text-green-600 text-xl" />,
+            title: "Itemized Breakdown",
+            description: "See a clear breakdown of fuel, labor, and packaging costs."
         },
         {
-            icon: <FaRocket className="text-red-600 text-xl" />,
-            title: "AI-Powered Names",
-            description: "Get unique, AI-generated names for your startup."
+            icon: <FaCalculator className="text-red-600 text-xl" />,
+            title: "Smart Estimator",
+            description: "Our tool factors in multiple variables to give you reliable pricing."
         },
     ];
+
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 mb-10">

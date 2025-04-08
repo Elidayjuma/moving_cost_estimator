@@ -3,7 +3,7 @@
 module.exports = {
   experimental: {
     serverActions: {
-      allowedOrigins: ["nenopress.elidayjuma.com"],
+      allowedOrigins: ["movecalculator.tosomewherelogistics.africa"],
     },
   },
 };

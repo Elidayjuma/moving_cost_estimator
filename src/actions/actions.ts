@@ -4,9 +4,7 @@ import prisma from "@/lib/db";
 import { redirect } from "next/navigation";
 import { revalidatePath } from 'next/cache';
 import { session_data } from "../middleware";
-import {WORDPRESS_SYNTHESIZE_BLOG} from "../actions-publish/wordpress";
 import {WORDPRESS_SYNTHESIZE_BLOG_WITH_AGENTS} from "../actions-publish/wordpress_agentic";
-import {WORDPRESS_SYNTHESIZE_BLOG_WITH_RESEARCH} from "../actions-publish/wordpress_new";
 import { GENERATE_TWEETS } from "@/actions-publish/tweets";
 import { POST_A_TWEET_3RD_PARTY } from "@/actions-publish/tweets";
 import {GENERATE_POST} from "@/actions-publish/post";
@@ -23,6 +21,43 @@ interface Site {
 import { OpenAI } from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_KEY! });
+
+interface CostEstimate {
+  cost: number;
+  breakdown: string;
+}
+
+export async function estimateCostFromPrompt(prompt: string): Promise<CostEstimate | null> {
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4o-mini",
+      messages: [
+        {
+          role: "user",
+          content: `${prompt}`,
+        },
+      ],
+      max_tokens: 500,
+    });
+
+    const content = response.choices[0].message?.content;
+    console.log(content)
+    if (!content) throw new Error("No response from model");
+
+    // Extract and parse the JSON from the response
+    const jsonMatch = content.match(/{[\s\S]*}/);
+    if (jsonMatch) {
+      const parsed = JSON.parse(jsonMatch[0]);
+      return parsed;
+    }
+
+    throw new Error("Invalid JSON in response");
+  } catch (error) {
+    console.error("Error estimating cost:", error);
+    return null;
+  }
+}
+
 
 export async function generateNames(keyword: string): Promise<string[]> {
     if (!keyword.trim()) return []; // Ensure it always returns an array

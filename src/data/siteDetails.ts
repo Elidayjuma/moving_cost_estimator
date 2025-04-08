@@ -1,9 +1,9 @@
 export const siteDetails = {
-    siteName: 'NameKon',
-    siteUrl: 'https://ainame.elidayjuma.com/',
+    siteName: 'MoveCalculator',
+    siteUrl: 'https://moveclaculator.tosomewherelogistics.africa/',
     metadata: {
-        title: 'Intellignet, simple name generator for businesses and startups',
-        description: 'Generate genious business names in minutes ensuring domain name availability and social handles.',
+        title: 'Intellignet, simple moving cost estimator for businesses and Drivers',
+        description: 'Estimate your moving costs in minutes ensuring you budget efficiently and with accuracy.',
     },
     language: 'en-us',
     locale: 'en-US',

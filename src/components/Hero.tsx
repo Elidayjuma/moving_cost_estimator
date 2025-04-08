@@ -1,6 +1,7 @@
 import React from 'react';
 
-import SearchForm from './SearchForm';
+// import SearchForm from './SearchForm';
+import InputForm from './InputForm';
 
 import { heroDetails } from '@/data/hero';
 
@@ -23,7 +24,8 @@ const Hero: React.FC = () => {
                 <p className="mt-4 text-foreground ">{heroDetails.subheading}</p>
                 <div className="mt-6 mb-60 sm:gap-4">
 
-                    <SearchForm />
+                    {/* <SearchForm /> */}
+                    <InputForm />
                 </div>
 
             </div>

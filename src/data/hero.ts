@@ -1,5 +1,5 @@
 export const heroDetails = {
-    heading: 'Startup Name Generator',
-    subheading: 'generate a short, brandable business name using artificial intelligence',
+    heading: 'Moving Cost Estimator',
+    subheading: 'generate a quick, almost accurate estimate for your next move',
     centerImageSrc: '/images/hero-mockup.webp',
 }

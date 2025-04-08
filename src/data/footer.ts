@@ -7,27 +7,27 @@ export const footerDetails: {
     telephone: string;
     socials: ISocials;
 } = {
-    subheading: "Empowering businesses with names beyond imagination.",
+    subheading: "Empowering logistics businesses beyond imagination.",
     quickLinks: [
         {
-            text: "Domains",
-            url: "https://elidayjuma.com/tag/domain-names/"
+            text: "Drivers",
+            url: "https://forms.gle/k7H6yVxMWx8bgmdX9"
         },
         {
-            text: "Startups",
-            url: "https://elidayjuma.com/tag/domain-names/"
+            text: "Moving Services",
+            url: "https://tosomewherelogistics.africa/category/moving-services/"
         },
         {
-            text: "Ideas",
-            url: "https://elidayjuma.com/50-one-page-website-ideas-with-traffic-revenue-potential/"
-        }
+            text: "Get Quote",
+            url: "https://forms.gle/b2dcDzowBEd1BmoV9"
+        },
     ],
-    email: 'elidayjuma@gmail.com',
+    email: 'tosomewherelogistics@gmail.com',
     telephone: 'not today',
     socials: {
         // github: 'https://github.com',
         // x: 'https://twitter.com/x',
-        twitter: 'https://twitter.com/Twitter',
+        twitter: 'https://x.com/sumwealogistics',
         facebook: 'https://facebook.com',
         // youtube: 'https://youtube.com',
         linkedin: 'https://www.linkedin.com',

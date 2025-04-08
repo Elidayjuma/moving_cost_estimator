@@ -1,6 +1,6 @@
 export const ctaDetails = {
-    heading: 'Join Over 1 Million Users To Kickstart Your Startup',
-    subheading: 'Your journey to a successful startup starts here. Check and get your name today and take the first step towards a brighter future!',
+    heading: 'Join Over 100k Drivers To Power Your Logistics Business',
+    subheading: 'Your journey to a successful logistics business starts here. Check and get your estimates today and take the first step towards a brighter future!',
     appStoreUrl: '#',
     googlePlayUrl: '#'
 }
