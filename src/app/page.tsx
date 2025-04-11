@@ -12,6 +12,7 @@ import FeatureCards from "@/components/FeaturedCards";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { siteDetails } from '@/data/siteDetails';
+import Script from "next/script";
 
 const HomePage: React.FC = () => {
   return (
@@ -25,6 +26,7 @@ const HomePage: React.FC = () => {
 
         <CTA />
       </Container>
+      <Script defer data-domain="movecalculator.tosomewherelogistics.africa" src="https://analytics.elidayjuma.com/js/script.outbound-links.js" />
       <Footer />
     </>
   );
