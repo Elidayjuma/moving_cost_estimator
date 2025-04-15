@@ -7,15 +7,15 @@ import CostEstimateCard, { EstimateObject } from "./CostEstimateCard"; // adjust
 
 const InputForm: React.FC = () => {
     const [moveType, setMoveType] = useState<string>(""); // House, Office, or Luggage
-    const [distance, setDistance] = useState<number>(0); // Distance in km
-    const [weight, setWeight] = useState<number>(0); // Weight in kg (for luggage)
-    const [roomCount, setRoomCount] = useState<number>(0); // Rooms for house or office move
+    const [distance, setDistance] = useState<string>(""); // Distance in km
+    const [weight, setWeight] = useState<string>(""); // Weight in kg (for luggage)
+    const [roomCount, setRoomCount] = useState<string>(""); // Rooms for house or office move
     const [bulkItems, setBulkItems] = useState<string>(""); // Bulk items for house or office move
     const [packaging, setPackaging] = useState<boolean>(false); // Packaging required
     const [itemType, setItemType] = useState<string>(""); // Household or Appliance (if luggage)
     const [currency, setCurrency] = useState<string>("");
-    const [fuelCost, setFuelCost] = useState<number>(170);
-    const [vehicleFuelConsumption, setVehicleFuelConsumption] = useState<number>(5);
+    const [fuelCost, setFuelCost] = useState<number>(165);
+    const [vehicleFuelConsumption, setVehicleFuelConsumption] = useState<string>("");
     const [vehicleType, setVehicleType] = useState<string>("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string>("");
@@ -26,23 +26,22 @@ const InputForm: React.FC = () => {
         setError("");
         setLoading(true);
 
-        if (distance <= 0 || (moveType === "luggage" && weight <= 0) || (moveType !== "luggage" && roomCount <= 0)) {
+        if (Number(distance) <= 0 || (moveType === "luggage" && Number(weight) <= 0) || (moveType !== "luggage" && Number(roomCount) <= 0)) {
             setError("Please fill all the fields with valid values.");
             setLoading(false);
             return;
         }
-
         const costEstimate = await calculateEstimate({
             bulkItems,
-            distance,
+            distance: Number(distance),
             itemType,
             moveType,
             packaging,
-            roomCount,
-            weight,
+            roomCount: Number(roomCount),
+            weight: Number(weight),
             currency,
             fuelCost,
-            vehicleFuelConsumption,
+            vehicleFuelConsumption: Number(vehicleFuelConsumption),
             vehicleType
         })
 
@@ -119,7 +118,7 @@ const InputForm: React.FC = () => {
                                         type="number"
                                         id="weight"
                                         value={weight}
-                                        onChange={(e) => setWeight(Number(e.target.value))}
+                                        onChange={(e) => setWeight(e.target.value)}
                                         className="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg"
                                         placeholder="Enter Weight"
                                         required
@@ -139,7 +138,7 @@ const InputForm: React.FC = () => {
                                         type="number"
                                         id="rooms"
                                         value={roomCount}
-                                        onChange={(e) => setRoomCount(Number(e.target.value))}
+                                        onChange={(e) => setRoomCount(e.target.value)}
                                         className="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg"
                                         placeholder="Enter Number of Rooms"
                                         required
@@ -170,7 +169,7 @@ const InputForm: React.FC = () => {
                                 type="number"
                                 id="distance"
                                 value={distance}
-                                onChange={(e) => setDistance(Number(e.target.value))}
+                                onChange={(e) => setDistance(e.target.value)}
                                 className="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg"
                                 placeholder="Enter Distance"
                                 required
@@ -202,9 +201,9 @@ const InputForm: React.FC = () => {
                                 type="number"
                                 id="fuel-consumption"
                                 value={vehicleFuelConsumption}
-                                onChange={(e) => setVehicleFuelConsumption(Number(e.target.value))}
+                                onChange={(e) => setVehicleFuelConsumption(e.target.value)}
                                 className="block w-full p-2.5 text-sm text-gray-900 border border-gray-300 rounded-lg"
-                                placeholder="e.g., 0.2"
+                                placeholder="e.g., 10 "
                                 required
                             />
                         </div>

@@ -26,7 +26,7 @@ const CostEstimateCard = ({
                                 <span className="font-medium text-gray-700 capitalize">
                                     {key.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}:
                                 </span>{" "}
-                                {value}
+                                {value} {estimate.currency}
                             </li>
                         ))}
                 </ul>
